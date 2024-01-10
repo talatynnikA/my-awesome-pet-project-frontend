@@ -7,7 +7,7 @@ const Contacts = () => {
     useEffect(() => {
         const fetchContacts = async () => {
             try {
-                const response = await axios.get('/api/contacts');
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/contacts`);
                 setContacts(response.data);
             } catch (error) {
                 console.error('Error fetching contacts:', error);

@@ -7,7 +7,7 @@ const Home = () => {
     useEffect(() => {
         const fetchAboutMe = async () => {
             try {
-                const response = await axios.get('/');
+                const response = await axios.get('`${process.env.REACT_APP_BACKEND_URL}/');
                 setAboutMe(response.data);
             } catch (error) {
                 console.error('Error fetching about me:', error);
