@@ -36,15 +36,23 @@ const Home = () => {
             <p>{aboutMe.Education}</p>
             <h2>Experience</h2>
             <ul>
-                {aboutMe.Experience && aboutMe.Experience.map(exp => (
-                    <li key={exp}>{exp}</li>
-                ))}
+                {aboutMe.Experience && Array.isArray(aboutMe.Experience) ? (
+                    aboutMe.Experience.map(experience => (
+                        <li key={experience}>{experience}</li>
+                    ))
+                ) : (
+                    <li>{aboutMe.Experience}</li>
+                )}
             </ul>
             <h2>About Me</h2>
             <ul>
-                {aboutMe['About me'] && aboutMe['About me'].map(info => (
-                    <li key={info}>{info}</li>
-                ))}
+                {aboutMe['About me'] && Array.isArray(aboutMe['About me']) ? (
+                    aboutMe['About me'].map(info => (
+                        <li key={info}>{info}</li>
+                    ))
+                ) : (
+                    <li>{aboutMe['About me']}</li>
+                )}
             </ul>
         </div>
     );
