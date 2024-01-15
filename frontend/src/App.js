@@ -4,6 +4,7 @@ import axios from 'axios';
 import Home from './pages/Home';
 import Contacts from './pages/Contacts';
 import Header from './pages/Header';
+import './App.css';
 
 const App = () => {
     return (
