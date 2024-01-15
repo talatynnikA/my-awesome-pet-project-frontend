@@ -7,11 +7,11 @@ const Header = () => {
         <header>
             <nav>
                 <ul className="header-list">
-                    <li>
-                        <Link to="/">Home</Link>
+                    <li className="header-item">
+                        <Link to="/" className="header-link">Home</Link>
                     </li>
-                    <li>
-                        <Link to="/contacts">Contacts</Link>
+                    <li className="header-item">
+                        <Link to="/contacts" className="header-link">Contacts</Link>
                     </li>
                 </ul>
             </nav>
