@@ -7,7 +7,7 @@ const Home = () => {
     useEffect(() => {
         const fetchAboutMe = async () => {
             try {
-                const response = await axios.get('/');
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/`);
                 setAboutMe(response.data);
             } catch (error) {
                 console.error('Error fetching about me:', error);
@@ -23,23 +23,36 @@ const Home = () => {
             <p>{aboutMe.Hello}</p>
             <h2>Skills</h2>
             <ul>
-                {aboutMe.Skills && aboutMe.Skills.map(skill => (
-                    <li key={skill}>{skill}</li>
-                ))}
+                {console.log(aboutMe)}
+                {aboutMe.Skills && Array.isArray(aboutMe.Skills) ? (
+                    aboutMe.Skills.map(skill => (
+                        <li key={skill}>{skill}</li>
+                    ))
+                ) : (
+                    <li>{aboutMe.Skills}</li>
+                )}
             </ul>
             <h2>Education</h2>
             <p>{aboutMe.Education}</p>
             <h2>Experience</h2>
             <ul>
-                {aboutMe.Experience && aboutMe.Experience.map(exp => (
-                    <li key={exp}>{exp}</li>
-                ))}
+                {aboutMe.Experience && Array.isArray(aboutMe.Experience) ? (
+                    aboutMe.Experience.map(experience => (
+                        <li key={experience}>{experience}</li>
+                    ))
+                ) : (
+                    <li>{aboutMe.Experience}</li>
+                )}
             </ul>
             <h2>About Me</h2>
             <ul>
-                {aboutMe['About me'] && aboutMe['About me'].map(info => (
-                    <li key={info}>{info}</li>
-                ))}
+                {aboutMe['About me'] && Array.isArray(aboutMe['About me']) ? (
+                    aboutMe['About me'].map(info => (
+                        <li key={info}>{info}</li>
+                    ))
+                ) : (
+                    <li>{aboutMe['About me']}</li>
+                )}
             </ul>
         </div>
     );
