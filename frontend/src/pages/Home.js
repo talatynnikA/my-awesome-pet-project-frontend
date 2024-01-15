@@ -23,9 +23,14 @@ const Home = () => {
             <p>{aboutMe.Hello}</p>
             <h2>Skills</h2>
             <ul>
-                {aboutMe.Skills && aboutMe.Skills.map(skill => (
-                    <li key={skill}>{skill}</li>
-                ))}
+                {console.log(aboutMe)}
+                {aboutMe.Skills && Array.isArray(aboutMe.Skills) ? (
+                    aboutMe.Skills.map(skill => (
+                        <li key={skill}>{skill}</li>
+                    ))
+                ) : (
+                    <li>{aboutMe.Skills}</li>
+                )}
             </ul>
             <h2>Education</h2>
             <p>{aboutMe.Education}</p>
